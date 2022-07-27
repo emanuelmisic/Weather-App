@@ -1,17 +1,43 @@
 #searchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
     border: 1px solid blue;
+}
+
+input[type=text] {
+    width: 200px;
+    height: 20px;
+    font-size: 1.2rem;
+}
+
+button {
+    margin-left: 10px;
+    height: 25px;
 }
 
 #mainContainer {
     border: 1px solid pink;
 }
 
-#liveWeatherContainer {
+h3 {
+    font-size: 2.2rem;
+    margin-left: 100px;
+}
+
+#weatherContainer {
+    display: flex;
+}
+
+#leftContainer {
     border: 1px solid red;
-    height: 200px;
+    height: 350px;
+    width: 400px;
 }
 
 #rightContainer {
     border: 1px solid green;
-    height: 200px;
+    height: 350px;
+    width: calc(100% - 400px);
 }
