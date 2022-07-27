@@ -1,0 +1,17 @@
+#searchContainer {
+    border: 1px solid blue;
+}
+
+#mainContainer {
+    border: 1px solid pink;
+}
+
+#liveWeatherContainer {
+    border: 1px solid red;
+    height: 200px;
+}
+
+#rightContainer {
+    border: 1px solid green;
+    height: 200px;
+}
