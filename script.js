@@ -25,6 +25,8 @@ const weather5 = document.querySelector('#weatherStateDay5');
 const temp5 = document.querySelector('#temperatureDay5');
 const humidity5 = document.querySelector('#humidityDay5');
 
+let mode = 'celsius';
+
 // On click
 searchBtn.onclick = () => renderData(searchBar.value);
 
@@ -41,5 +43,30 @@ async function getData(value) {
 
 async function renderData(value) {
   let data = await getData(value);
-  console.log(data.main.temp);
+  console.log(data);
+
+  todayString = `${new Date()}`;
+  today = new Date();
+
+  locationDisplay.innerHTML = `${data.name}, ${data.sys.country}`;
+  date.innerHTML = `${todayString.slice(0, 3)} ${today.getDate()}.${
+    today.getMonth() + 1
+  }.${today.getFullYear()}.`;
+
+  weather.innerHTML = `${data.weather[0].main}`;
+  if (mode == 'celsius') {
+    temperature.innerHTML = `${ktoc(data.main.temp)}&#176;C`;
+  } else if (mode == 'farenheit') {
+    temperature.innerHTML = `${ktof(data.main.temp)}&#176;F`;
+  }
+
+  wind.innerHTML = `Wind: ${data.wind.speed} m/s`;
+}
+
+function ktof(temp) {
+  return Math.round((1.8 * (temp - 273) + 32) * 10) / 10;
+}
+
+function ktoc(temp) {
+  return Math.round((temp - 273.15) * 10) / 10;
 }
