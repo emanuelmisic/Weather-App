@@ -2,7 +2,7 @@
 const searchBar = document.querySelector('#searchBar');
 const searchBtn = document.querySelector('#searchBtn');
 
-const location = document.querySelector('#location');
+const locationDisplay = document.querySelector('#location');
 
 const date = document.querySelector('#date');
 const weather = document.querySelector('#weatherStateMain');
@@ -24,3 +24,10 @@ const humidity4 = document.querySelector('#humidityDay4');
 const weather5 = document.querySelector('#weatherStateDay5');
 const temp5 = document.querySelector('#temperatureDay5');
 const humidity5 = document.querySelector('#humidityDay5');
+
+// On click
+searchBtn.onclick = () => dummySearch(searchBar.value);
+
+function dummySearch(value) {
+  locationDisplay.innerHTML = `${value}`;
+}
