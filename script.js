@@ -26,8 +26,20 @@ const temp5 = document.querySelector('#temperatureDay5');
 const humidity5 = document.querySelector('#humidityDay5');
 
 // On click
-searchBtn.onclick = () => dummySearch(searchBar.value);
+searchBtn.onclick = () => renderData(searchBar.value);
 
-function dummySearch(value) {
-  locationDisplay.innerHTML = `${value}`;
+async function getData(value) {
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=35889e2acf3220fd70ceb15b0d5d0601`;
+  try {
+    let res = await fetch(url);
+    return await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+  console.log(res);
+}
+
+async function renderData(value) {
+  let data = await getData(value);
+  console.log(data.main.temp);
 }
