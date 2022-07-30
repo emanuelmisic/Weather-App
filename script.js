@@ -7,6 +7,9 @@ const locationDisplay = document.querySelector('#location');
 const date = document.querySelector('#date');
 const weather = document.querySelector('#weatherStateMain');
 const temperature = document.querySelector('#temperatureMain');
+const tempFeel = document.querySelector('#feel');
+const humidity = document.querySelector('#humidityMain');
+
 const wind = document.querySelector('#windSpeedMain');
 
 const weather1 = document.querySelector('#weatherStateDay1');
@@ -31,7 +34,7 @@ let mode = 'celsius';
 searchBtn.onclick = () => renderData(searchBar.value);
 
 async function getData(value) {
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=35889e2acf3220fd70ceb15b0d5d0601`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=REPLACE_WITH_YOUR_OWN_KEY`;
   try {
     let res = await fetch(url);
     return await res.json();
@@ -60,7 +63,16 @@ async function renderData(value) {
     temperature.innerHTML = `${ktof(data.main.temp)}&#176;F`;
   }
 
-  wind.innerHTML = `Wind: ${data.wind.speed} m/s`;
+  tempFeel.innerHTML = `Feels Like: ${data.main.feels_like}&#176;C`;
+  humidity.innerHTML = `Humidity: ${data.main.humidity}%`;
+
+  if (mode == 'celsius') {
+    wind.innerHTML = `Wind: ${Math.round(
+      (data.wind.speed * 3.6 * 10) / 10
+    )} km/h`;
+  } else if (mode == 'farenheit') {
+    wind.innerHTML = `Wind: ${data.wind.speed} m/s`;
+  }
 }
 
 function ktof(temp) {
