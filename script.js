@@ -61,21 +61,15 @@ async function renderData(value) {
   if (mode == 'celsius') {
     temperature.innerHTML = `${ktoc(data.main.temp)}&#176;C`;
     tempFeel.innerHTML = `Feels Like: ${ktoc(data.main.feels_like)}&#176;C`;
-  } else if (mode == 'farenheit') {
-    temperature.innerHTML = `${ktof(data.main.temp)}&#176;F`;
-    tempFeel.innerHTML = `Feels Like: ${ktof(data.main.feels_like)}&#176;F`;
-  }
-
-  humidity.innerHTML = `Humidity: ${data.main.humidity}%`;
-
-  if (mode == 'celsius') {
     wind.innerHTML = `Wind: ${Math.round(
       (data.wind.speed * 3.6 * 10) / 10
     )} km/h`;
   } else if (mode == 'farenheit') {
+    temperature.innerHTML = `${ktof(data.main.temp)}&#176;F`;
+    tempFeel.innerHTML = `Feels Like: ${ktof(data.main.feels_like)}&#176;F`;
     wind.innerHTML = `Wind: ${data.wind.speed} m/s`;
   }
-
+  humidity.innerHTML = `Humidity: ${data.main.humidity}%`;
   pressure.innerHTML = `Pressure: ${data.main.pressure} hPa`;
 }
 
