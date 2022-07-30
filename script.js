@@ -9,8 +9,8 @@ const weather = document.querySelector('#weatherStateMain');
 const temperature = document.querySelector('#temperatureMain');
 const tempFeel = document.querySelector('#feel');
 const humidity = document.querySelector('#humidityMain');
-
 const wind = document.querySelector('#windSpeedMain');
+const pressure = document.querySelector('#pressureMain');
 
 const weather1 = document.querySelector('#weatherStateDay1');
 const temp1 = document.querySelector('#temperatureDay1');
@@ -75,6 +75,8 @@ async function renderData(value) {
   } else if (mode == 'farenheit') {
     wind.innerHTML = `Wind: ${data.wind.speed} m/s`;
   }
+
+  pressure.innerHTML = `Pressure: ${data.main.pressure} hPa`;
 }
 
 function ktof(temp) {
