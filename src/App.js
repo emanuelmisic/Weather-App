@@ -1,7 +1,9 @@
+import SearchBar from "./components/SearchBar";
+
 function App() {
   return (
     <div className="app-dark">
-      <h2>SearchBar</h2>
+      <SearchBar />
     </div>
   );
 }
