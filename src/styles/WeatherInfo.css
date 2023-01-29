@@ -1,0 +1,15 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  border: 1px solid white;
+}
+
+.today {
+  border: 1px solid yellow;
+
+  padding: 1em;
+  width: 20em;
+  height: 20em;
+  display: flex;
+  flex-direction: column;
+}
