@@ -1,8 +1,10 @@
+import "../styles/SearchBar.css";
+
 function SearchBar() {
   return (
-    <div className="search-bar-container">
-      <input type="text" />
-      <button>Search</button>
+    <div className="container">
+      <input type="text" className="input" />
+      <button className="button">Search</button>
     </div>
   );
 }
