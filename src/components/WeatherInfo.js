@@ -4,7 +4,7 @@ function WeatherInfo() {
   return (
     <div className="main-container">
       <div className="today">
-        <img src="" width="100em" />
+        <img src="" alt="" width="100em" />
         <p>Temp</p>
         <p>Feels like</p>
         <p>Wind speed</p>
